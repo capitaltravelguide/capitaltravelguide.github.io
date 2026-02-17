@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capital One Travel | Luxury Holiday Packages India</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ================= RESET ================= */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= VARIABLES ================= */
+:root {
+    --gold: #D4AF37;
+    --navy: #023e8a;
+    --light-bg: #f8fafc;
+}
+
+/* ================= GLOBAL SAFETY ================= */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+/* ================= BASE ================= */
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #1f2937;
+    background: var(--light-bg);
+    padding-top: 75px;
+}
+
+/* ================= CONTAINER ================= */
+.container {
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: clamp(20px, 4vw, 60px);
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--navy);
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.navbar-inner {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(12px, 2vw, 24px);
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: clamp(14px, 2vw, 26px);
+    white-space: nowrap;
+    flex: 1;
+    justify-content: center;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: clamp(0.85rem, 1vw, 0.95rem);
+    padding: 10px 12px;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover:not(.book-btn) {
+    color: var(--gold);
+}
+
+.book-btn {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 10px clamp(18px, 2vw, 24px);
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: clamp(0.85rem, 1vw, 0.9rem);
+    box-shadow: 0 4px 15px rgba(212,175,55,0.3);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* ================= HERO ================= */
+.hero {
+    min-height: 100vh;
+    padding: 120px 0 80px;
+    background: linear-gradient(
+        rgba(2,62,138,0.85),
+        rgba(2,62,138,0.7)
+    ),
+    url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-content {
+    max-width: 750px;
+    margin-inline: auto;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    max-width: 600px;
+    margin: 0 auto 35px;
+}
+
+/* ================= BUTTON ================= */
+.btn-primary {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* ================= SECTIONS ================= */
+.section {
+    padding: clamp(70px, 8vw, 110px) 0;
+}
+
+.section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    text-align: center;
+    margin-bottom: 60px;
+    color: var(--navy);
+}
+
+/* ================= GRID ================= */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: clamp(20px, 4vw, 40px);
+}
+
+/* ================= CARDS ================= */
+.luxury-card {
+    background: #fff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    transition: 0.4s ease;
+}
+
+.luxury-card:hover {
+    transform: translateY(-10px);
+}
+
+.luxury-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 24px;
+}
+
+.card-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    margin-bottom: 10px;
+    color: var(--navy);
+}
+
+.card-content p {
+    color: #64748b;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+    background: var(--navy);
+    color: #fff;
+    text-align: center;
+    padding: 60px 20px 40px;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+    body { padding-top: 70px; }
+
+    .navbar-inner { height: 70px; }
+
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: var(--navy);
+        flex-direction: column;
+        justify-content: center;
+        transform: translateX(-100%);
+        transition: 0.4s ease;
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+    }
+}
+
+/* Reviews & FAQ */
+.faq {
+  max-width: 800px;
+  margin: auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  padding: 18px 0;
+  font-weight: 600;
+  font-size: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--navy);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-answer p {
+  padding-bottom: 16px;
+  color: #475569;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 200px;
+}
+
+/* ================= READ MORE (PRO UX) ================= */
+.read-more-wrapper {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+.read-more-text,
+.read-more-hidden p {
+  color: #475569;
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  line-height: 1.8;
+}
+
+.read-more-hidden {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.read-more-wrapper.open .read-more-hidden {
+  max-height: 300px; /* enough for text */
+}
+
+.read-more-btn {
+  margin-top: 24px;
+  background: transparent;
+  color: var(--navy);
+  border: 2px solid var(--gold);
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.read-more-btn:hover {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="container navbar-inner">
+        <div class="logo">Capital <span>One</span> Travel</div>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#lounges">Airport Lounges</a></li>
+            <li><a href="#packages">Holiday Packages</a></li>
+            <li><a href="#benefits">Travel Benefits</a></li>
+            <li><a href="#business">Business Travel</a></li>
+            <li><a href="#stays">Premium Stays</a></li>
+            <li><a href="https://url90.com/?1s7clbwoqk9z2epCgffHWFPNdUwBCIdVfRlXGYKIr3VbCBObH" class="book-btn">Book Now</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Elevate Your Journey</h1>
+            <p>Luxury lounges with artisanal cuisine, premium cocktails, unmatched comfort at world-class airports.</p>
+            <a href="https://url90.com/?1s7clbwoqk9z2epCgffHWFPNdUwBCIdVfRlXGYKIr3VbCBObH" class="btn-primary">Book Luxury Travel Now</a>
+        </div>
+    </div>
+</section>
+
+<!-- LOUNGES -->
+<section class="section" id="lounges">
+    <div class="container">
+        <h2>Capital Lounges</h2>
+        <div class="grid">
+            <div class="luxury-card">
+                <img src="img/image3.png">
+                <div class="card-content">
+                    <h3>New York (LGA)</h3>
+                    <p>Handcrafted cocktails, farm-to-table dining, private workspaces.</p>
+                </div>
+            </div>
+            <div class="luxury-card">
+                <img src="img/image2.png">
+                <div class="card-content">
+                    <h3>Las Vegas (LAS)</h3>
+                    <p>Gourmet tasting menus, VIP entertainment lounges.</p>
+                </div>
+            </div>
+            <div class="luxury-card">
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500&q=80">
+                <div class="card-content">
+                    <h3>Washington (DCA)</h3>
+                    <p>Executive conference facilities and premium beverages.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="packages">
+  <div class="container">
+    <h2>Luxury Holiday Packages</h2>
+
+    <div class="grid">
+      <div class="luxury-card">
+        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80" alt="">
+        <div class="card-content">
+          <h3>Rajasthan Desert Camps</h3>
+          <p>Royal desert glamping with private tents, cultural evenings, camel safaris, and curated dining.</p>
+        </div>
+      </div>
+
+      <div class="luxury-card">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80" alt="">
+        <div class="card-content">
+          <h3>Goa Ocean Villas</h3>
+          <p>Private beach villas with infinity pools, yacht experiences, spa treatments, and fine dining.</p>
+        </div>
+      </div>
+
+      <div class="luxury-card">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80" alt="">
+        <div class="card-content">
+          <h3>Kashmir Snow Retreats</h3>
+          <p>Luxury houseboats, Himalayan views, snow adventures, and curated family experiences.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="stays">
+  <div class="container">
+    <h2>Premium Stays & Exclusive Accommodations</h2>
+
+    <div class="grid">
+      <div class="luxury-card">
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&q=80" alt="Luxury Hotels">
+        <div class="card-content">
+          <h3>Luxury Hotels & Resorts</h3>
+          <p>
+            Stay at world-class hotels and resorts offering premium comfort, refined interiors,
+            personalized services, and exceptional hospitality.
+          </p>
+        </div>
+      </div>
+
+      <div class="luxury-card">
+        <img src="img/image4.png" alt="Private Villas">
+        <div class="card-content">
+          <h3>Private Villas & Beachfront Homes</h3>
+          <p>
+            Enjoy complete privacy in handpicked villas with private pools, ocean views,
+            luxury amenities, and personalized experiences.
+          </p>
+        </div>
+      </div>
+
+      <div class="luxury-card">
+        <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=900&q=80" alt="Business Stays">
+        <div class="card-content">
+          <h3>Premium Business Stays</h3>
+          <p>
+            Executive-friendly accommodations with workspaces, fast Wi-Fi, premium lounges,
+            and convenient locations for business travelers.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="business">
+  <div class="container">
+    <h2>Business Travel Solutions</h2>
+
+    <p style="max-width:820px;margin:0 auto 50px;text-align:center;color:#475569;line-height:1.8;">
+      Capital One Travel delivers premium business travel solutions designed for professionals,
+      executives, and corporate teams who value efficiency, comfort, and reliability.
+      From seamless bookings to executive-level stays, we make business travel effortless.
+    </p>
+
+    <div class="grid">
+      <div class="luxury-card">
+        <div class="card-content">
+          <h3>Priority Check-In & Boarding</h3>
+          <p>
+            Save time with fast-track check-in, priority boarding, and streamlined airport services
+            designed for busy professionals.
+          </p>
+        </div>
+      </div>
+
+      <div class="luxury-card">
+        <div class="card-content">
+          <h3>Executive Airport Lounges</h3>
+          <p>
+            Access premium airport lounges with high-speed Wi-Fi, quiet workspaces,
+            refreshments, and comfortable seating.
+          </p>
+        </div>
+      </div>
+
+      <div class="luxury-card">
+        <div class="card-content">
+          <h3>Corporate-Friendly Stays</h3>
+          <p>
+            Stay at premium hotels near business hubs featuring work desks,
+            meeting rooms, and executive amenities.
+          </p>
+        </div>
+      </div>
+
+      <div class="luxury-card">
+        <div class="card-content">
+          <h3>Flexible Bookings</h3>
+          <p>
+            Enjoy flexible scheduling, easy modifications, and transparent policies
+            tailored to dynamic business needs.
+          </p>
+        </div>
+      </div>
+
+      <div class="luxury-card">
+        <div class="card-content">
+          <h3>Centralized Corporate Billing</h3>
+          <p>
+            Simplified invoicing, centralized payments, and detailed travel reports
+            for efficient expense management.
+          </p>
+        </div>
+      </div>
+
+      <div class="luxury-card">
+        <div class="card-content">
+          <h3>24/7 Business Travel Support</h3>
+          <p>
+            Dedicated round-the-clock assistance for urgent changes, delays,
+            or unexpected travel requirements.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= REVIEWS ================= -->
+<section class="section" style="background:#f1f5f9">
+  <div class="container">
+    <h2>What Our Travelers Say</h2>
+
+    <div class="grid">
+      <div class="luxury-card">
+        <div class="card-content">
+          <p>“An unforgettable luxury experience. From airport lounge access to premium stays, everything was flawless.”</p>
+          <strong>— Rohan Mehta, Mumbai</strong>
+        </div>
+      </div>
+
+      <div class="luxury-card">
+        <div class="card-content">
+          <p>“Capital One Travel planned our honeymoon perfectly. Seamless bookings and world-class hotels.”</p>
+          <strong>— Ananya & Karan, Delhi</strong>
+        </div>
+      </div>
+
+      <div class="luxury-card">
+        <div class="card-content">
+          <p>“Exceptional service for business travel. Comfortable lounges and premium arrangements.”</p>
+          <strong>— Vikram Singh, Bengaluru</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Why Choose Capital One Travel?</h2>
+
+    <div class="read-more-wrapper">
+      <p class="read-more-text">
+        Capital One Travel specializes in curated luxury travel experiences across India and international destinations.
+        We combine premium airport lounges, handpicked hotels, personalized itineraries, and exclusive benefits to
+        deliver seamless journeys for families, couples, and corporate travelers.
+      </p>
+
+     
+<button 
+  class="read-more-btn"
+  aria-expanded="false"
+  onclick="window.location.href='https://url90.com/?1s7clbwoqk9z2epCgffHWFPNdUwBCIdVfRlXGYKIr3VbCBObH'">
+  Read More
+</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="benefits">
+  <div class="container">
+    <h2>Exclusive Travel Benefits</h2>
+
+    <div class="grid">
+      <div class="luxury-card">
+        <div class="card-content">
+          <h3>Premium Airport Lounges</h3>
+          <p>Relax in world-class airport lounges with complimentary meals, beverages, Wi-Fi, and quiet workspaces.</p>
+        </div>
+      </div>
+
+      <div class="luxury-card">
+        <div class="card-content">
+          <h3>Priority Travel Services</h3>
+          <p>Enjoy priority check-in, faster security clearance, and seamless boarding for a stress-free journey.</p>
+        </div>
+      </div>
+
+      <div class="luxury-card">
+        <div class="card-content">
+          <h3>Handpicked Premium Stays</h3>
+          <p>Access exclusive luxury hotels, resorts, and villas with special privileges and member-only pricing.</p>
+        </div>
+      </div>
+
+      <div class="luxury-card">
+        <div class="card-content">
+          <h3>Personalized Itineraries</h3>
+          <p>Custom-designed travel plans curated by experts to match your style, schedule, and preferences.</p>
+        </div>
+      </div>
+
+      <div class="luxury-card">
+        <div class="card-content">
+          <h3>Business Travel Excellence</h3>
+          <p>Corporate-friendly bookings, flexible schedules, and premium comfort designed for business travelers.</p>
+        </div>
+      </div>
+
+      <div class="luxury-card">
+        <div class="card-content">
+          <h3>24/7 Travel Assistance</h3>
+          <p>Round-the-clock support during your journey for bookings, changes, emergencies, and peace of mind.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= FAQ ================= -->
+<section class="section" id="faq" style="background:#f8fafc">
+  <div class="container">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq">
+      <div class="faq-item">
+        <button class="faq-question">Do you offer customized travel packages?</button>
+        <div class="faq-answer">
+          <p>Yes. All our packages can be fully customized based on your preferences, budget, and travel dates.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Is airport lounge access included?</button>
+        <div class="faq-answer">
+          <p>Premium airport lounge access is included in selected packages and business travel plans.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Do you provide support during the trip?</button>
+        <div class="faq-answer">
+          <p>Yes. We offer 24/7 travel assistance throughout your journey.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>© 2026 <strong>Capital <span style="color:var(--gold)">One</span> Travel</strong></p>
+    <p style="opacity:.9;margin-top:10px;">Premium Holiday Packages | Luxury Travel Experiences</p>
+</footer>
+<script>
+document.querySelector('.read-more-btn')?.addEventListener('click', function () {
+  document.querySelector('.more-text').style.display = 'inline';
+  this.style.display = 'none';
+});
+
+document.querySelectorAll('.faq-question').forEach(q => {
+  q.addEventListener('click', () => {
+    q.parentElement.classList.toggle('active');
+  });
+});
+</script>
+
+</body>
+</html>
